@@ -465,6 +465,8 @@ static EC_OBJ string_mod( EC_OBJ obj1, EC_OBJ obj2 )
 
 	if (EC_ARRAYP(obj2))
 		return ec_printf_obj( EC_STRDATA(obj1), EC_ARRAYMEM(obj2), EC_ARRAYLEN(obj2), 0, EC_NIL );
+	else if (EcIsSequence(obj2))
+		return ec_printf_obj( EC_STRDATA(obj1), NULL, 0, 0, obj2 );
 	else if (! EcIsSequence(obj2))
 		return ec_printf_obj( EC_STRDATA(obj1), &obj2, 1, 0, EC_NIL );
 	else
