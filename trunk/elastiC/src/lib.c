@@ -888,7 +888,7 @@ EC_API EC_OBJ EcLibIOErrorClass_New( EC_OBJ self, EC_OBJ in_class, EC_OBJ stack 
 	EC_OBJ obj;
 	EC_OBJ msg, ioObject, posixError;
 
-	EC_CHECKNARGS_CM( self, "new", 2 );
+	EC_CHECKNARGS_CM( self, "new", 3 );
 
 	posixError = EC_STACKPOP( stack );
 	ioObject   = EC_STACKPOP( stack );
