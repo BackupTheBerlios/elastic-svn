@@ -186,6 +186,20 @@ EC_API EC_OBJ EcLibPrintf( EC_OBJ stack, EcAny userdata )
 	return res;
 }
 
+EC_API EC_OBJ EcLibSystem( EC_OBJ stack, EcAny userdata )
+{
+	char   *command;
+	int     rv;
+	EC_OBJ  res;
+
+	res = EcParseStackFunction( "basic.system", TRUE, stack, "s", &command );
+	if (EC_ERRORP(res))
+		return res;
+
+	rv = system( command );
+	return EcMakeInt( rv );
+}
+
 EC_API EC_OBJ EcLibCopy( EC_OBJ stack, EcAny userdata )
 {
 	EC_OBJ obj;
@@ -1450,6 +1464,7 @@ EcBool _ec_lib_init( void )
 	EcAddPrimitive( "basic.printnl",     EcLibPrintNL );
 	EcAddPrimitive( "basic.sprintf",     EcLibSPrintf );
 	EcAddPrimitive( "basic.printf",      EcLibPrintf );
+	EcAddPrimitive( "basic.system",      EcLibSystem );
 	EcAddPrimitive( "basic.copy",        EcLibCopy );
 	EcAddPrimitive( "basic.shallowcopy", EcLibShallowCopy );
 	EcAddPrimitive( "basic.deepcopy",    EcLibDeepCopy );

@@ -49,6 +49,7 @@ EC_API EC_OBJ EcLibPrint( EC_OBJ stack, EcAny userdata );
 EC_API EC_OBJ EcLibPrintNL( EC_OBJ stack, EcAny userdata );
 EC_API EC_OBJ EcLibSPrintf( EC_OBJ stack, EcAny userdata );
 EC_API EC_OBJ EcLibPrintf( EC_OBJ stack, EcAny userdata );
+EC_API EC_OBJ EcLibSystem( EC_OBJ stack, EcAny userdata );
 EC_API EC_OBJ EcLibCopy( EC_OBJ stack, EcAny userdata );
 EC_API EC_OBJ EcLibShallowCopy( EC_OBJ stack, EcAny userdata );
 EC_API EC_OBJ EcLibDeepCopy( EC_OBJ stack, EcAny userdata );
