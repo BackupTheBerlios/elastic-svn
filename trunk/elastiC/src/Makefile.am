@@ -35,9 +35,9 @@
 
 EXTRA_DIST = EXCEPTIONS INCONSISTENCIES libltdl.patch gen-primetable.pl primes.gnu
 if WIN32_SDK
-SUBDIRS = libltdl arithmetic dl modules types win32 . modules-dynamic
+SUBDIRS = libltdl arithmetic dl types win32 modules . modules-dynamic
 else
-SUBDIRS = libltdl arithmetic dl modules types unix . modules-dynamic
+SUBDIRS = libltdl arithmetic dl types unix  modules . modules-dynamic
 endif
 
 CLEANFILES = elastic-$(EC_API_VERSION).def elastic-$(EC_API_VERSION).dll libelastic-$(EC_API_VERSION).a libelasticrt-$(EC_API_VERSION).a
