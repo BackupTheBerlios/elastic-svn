@@ -43,7 +43,7 @@
 
 EC_BEGIN_DECLS
 
-typedef struct ec_mempool *ec_mempool;
+typedef struct ec_mempool_struct *ec_mempool;
 
 EC_API void *ec_malloc(size_t size);
 EC_API void  ec_free(void *ptr);
