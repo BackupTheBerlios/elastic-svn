@@ -84,6 +84,19 @@
 /* Define this to one if you want unnecessary initializations, ... */
 #define EC_PARANOID_CODE	0
 
+/*
+ * EC_DIRTY_MALLOC
+ *
+ * Define this to one if you want ec_malloc() & friends to initialize
+ * memory to a specific pattern (0xdeadbeef) after (de)allocation.
+ * Useful to detect strange missing initialization problems.
+ *
+ * NOTE: This value has effect only when EC_DEBUG is defined.
+ */
+#define EC_DIRTY_MALLOC		1
+#define EC_DIRTY_PATTERN	0xdeadbeef
+
+
 /* Private */
 
 #ifdef EC_DEBUG
