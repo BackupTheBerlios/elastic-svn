@@ -1871,6 +1871,7 @@ restart:
 			obj1 = EC_STACKPOP( stack );
 			ret = ec_binop_and( obj1, obj2 );
 			if (EC_ERRORP(ret)) goto on_error;
+			EC_STACKPUSH( stack, ret );
 			continue;
 
 		case OrOP:
@@ -1879,6 +1880,7 @@ restart:
 			obj1 = EC_STACKPOP( stack );
 			ret = ec_binop_or( obj1, obj2 );
 			if (EC_ERRORP(ret)) goto on_error;
+			EC_STACKPUSH( stack, ret );
 			continue;
 
 		case XorOP:
@@ -1887,6 +1889,7 @@ restart:
 			obj1 = EC_STACKPOP( stack );
 			ret = ec_binop_xor( obj1, obj2 );
 			if (EC_ERRORP(ret)) goto on_error;
+			EC_STACKPUSH( stack, ret );
 			continue;
 
 		case NegOP:
