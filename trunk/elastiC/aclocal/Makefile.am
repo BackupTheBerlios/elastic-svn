@@ -9,7 +9,7 @@
 #
 #   $Id$
 # --------------------------------------------------------------------------
-#    Copyright (C) 1999-2000 Marco Pantaleoni. All rights reserved.
+#    Copyright (C) 1999-2002 Marco Pantaleoni. All rights reserved.
 #
 #  The contents of this file are subject to the elastiC License version 1.0
 #  (the "elastiC License"); you may not use this file except in compliance
@@ -33,7 +33,7 @@
 #  limitations under the elastiC License.
 # ==========================================================================
 
-EXTRA_DIST = elastic-comp elastic-clean.am elastic.am elasticdir.m4
+EXTRA_DIST = elastic-comp elastic-clean.am elastic.am elastic.m4 elasticdir.m4
 
 aclocaldir  = $(datadir)/aclocal
 automakedir = $(datadir)/automake

@@ -33,11 +33,12 @@
 #  limitations under the elastiC License.
 # ==========================================================================
 
-EXTRA_DIST = LICENSE ACKNOWLEDGEMENTS elastic.m4 makemodule mkwin32.bat mingw32-makedll cygwin-makedll
+#EXTRA_DIST = LICENSE ACKNOWLEDGEMENTS elastic.m4 makemodule mkwin32.bat mingw32-makedll cygwin-makedll
+EXTRA_DIST = LICENSE ACKNOWLEDGEMENTS makemodule mkwin32.bat mingw32-makedll cygwin-makedll
 SUBDIRS = src aclocal . doc regress
 
-aclocaldir = $(datadir)/aclocal
-aclocal_DATA = elastic.m4
+#aclocaldir = $(datadir)/aclocal
+#aclocal_DATA = elastic.m4
 
 elasticincludedir = $(includedir)/elastic
 
