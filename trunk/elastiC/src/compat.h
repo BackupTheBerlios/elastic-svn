@@ -83,6 +83,10 @@
 #include <sys/types.h>
 #endif
 
+#if HAVE_SYS_WAIT_H
+#include <sys/wait.h>
+#endif
+
 #if HAVE_NETINET_IN_H
 #include <netinet/in.h>
 #endif
