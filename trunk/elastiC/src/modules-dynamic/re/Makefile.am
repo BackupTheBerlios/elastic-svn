@@ -44,7 +44,7 @@ SUBDIRS = pcre
 
 CLEANFILES = re.def re.dll libre.a $(MODULE) $(wildcard $.o)
 
-elasticlibdir = $(prefix)/lib/elastic
+elasticlibdir = $(prefix)/lib/elastic-$(EC_API_VERSION)
 elasticlib_DATA = $(MODULE)
 
 # dummy target to force proper automake behavior

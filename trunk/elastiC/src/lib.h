@@ -101,6 +101,7 @@ EC_API EC_OBJ EcLibMathErrorClass_New( EC_OBJ self, EC_OBJ in_class, EC_OBJ stac
 
 EC_API EC_OBJ EcLibIOErrorClass_New( EC_OBJ self, EC_OBJ in_class, EC_OBJ stack );
 EC_API EC_OBJ EcLibIOError_GetIOObject( EC_OBJ self, EC_OBJ in_class, EC_OBJ stack );
+EC_API EC_OBJ EcLibIOError_GetPosixError( EC_OBJ self, EC_OBJ in_class, EC_OBJ stack );
 
 EC_API EC_OBJ EcLibMemoryErrorClass_New( EC_OBJ self, EC_OBJ in_class, EC_OBJ stack );
 

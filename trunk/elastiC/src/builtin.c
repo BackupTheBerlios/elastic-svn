@@ -216,14 +216,16 @@ static EcCMethodDef EcIOErrorClass_ClassMethods[] =				/* Class Methods      */
 
 static EcCMethodDef EcIOErrorClass_Methods[] =					/* Instance Methods   */
 {
-	{ "getIOObject",	EcLibIOError_GetIOObject },
-	{ NULL,				NULL                     }
+	{ "getIOObject",	EcLibIOError_GetIOObject   },
+	{ "getPosixError",	EcLibIOError_GetPosixError },
+	{ NULL,				NULL                       }
 };
 
 static EcVariableDef EcIOErrorClass_Variables[] =				/* Instance Variables */
 {
-	{ "ioObject" },
-	{ NULL       }
+	{ "ioObject"   },											/* I/O object (file, ...) that caused or was interested by the error */
+	{ "posixError" },											/* symbol of the posix error (#EEXIST, #ENOMEM, ...)                 */
+	{ NULL         }
 };
 
 /* ------------------------------------------------------------------------

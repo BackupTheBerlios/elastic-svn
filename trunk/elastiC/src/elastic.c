@@ -663,9 +663,9 @@ EC_API EC_OBJ EcMathError( const char *msg )
 	return EcMakeExceptionWithArgs( EcMathErrorClass, msg, 0 );
 }
 
-EC_API EC_OBJ EcIOError( EC_OBJ ioObject, const char *msg )
+EC_API EC_OBJ EcIOError( EC_OBJ ioObject, EcUInt posixErrorSymbol, const char *msg )
 {
-	return EcMakeExceptionWithArgs( EcIOErrorClass, msg, 1, ioObject );
+	return EcMakeExceptionWithArgs( EcIOErrorClass, msg, 2, ioObject, EcMakeSymbolFromId( posixErrorSymbol ) );
 }
 
 EC_API EC_OBJ EcMemoryError( void )
