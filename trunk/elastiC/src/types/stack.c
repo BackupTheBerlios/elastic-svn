@@ -36,6 +36,7 @@
 
 #define EC_STACK_RECYCLE_OPS 1
 #include "elastic.h"
+#include "compat.h"
 #include "private.h"
 #include "debug.h"
 

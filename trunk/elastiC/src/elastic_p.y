@@ -42,6 +42,7 @@
 #include "elastic.h"
 #include "ast.h"
 #include "private.h"
+#include "compat.h"
 
 
 int yyparse( void );

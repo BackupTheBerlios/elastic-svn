@@ -46,8 +46,8 @@
 #endif
 
 EC_BEGIN_DECLS
-EC_OBJ ec_re_init( void );
-void ec_re_cleanup( void );
+EC_RE_MODULE_API EC_OBJ ec_re_init( void );
+EC_RE_MODULE_API void   ec_re_cleanup( void );
 EC_END_DECLS
 
 #endif /* __RE_M_H */

@@ -36,6 +36,7 @@
 
 #include "basic.h"
 #include "debug.h"
+#include "compat.h"
 
 #include "elastic.h"
 #include "re_m.h"
@@ -978,7 +979,7 @@ static EcBool match_compare( EC_OBJ obj1, EC_OBJ obj2, EcInt *res )
 
 /* Module initialization & cleanup */
 
-EC_OBJ ec_re_init( void )
+EC_RE_MODULE_API EC_OBJ ec_re_init( void )
 {
 	EcTypespec regexpspec = {
 		/* type    */		0,
@@ -1075,6 +1076,6 @@ EC_OBJ ec_re_init( void )
 	return pkg;
 }
 
-void ec_re_cleanup( void )
+EC_RE_MODULE_API void ec_re_cleanup( void )
 {
 }

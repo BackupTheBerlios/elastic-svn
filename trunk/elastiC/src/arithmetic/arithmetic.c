@@ -36,11 +36,12 @@
 
 #include <math.h>
 
+#include "basic.h"
 #include "elastic.h"
 #include "debug.h"
 
 #include "private.h"
-#include "config.h"
+/* #include "config.h" */
 #include "user.h"
 
 #include "arithmetic.h"

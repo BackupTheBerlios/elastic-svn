@@ -82,7 +82,8 @@
  * apply anymore.
  */
 
-#include "config.h"
+#include "basic.h"												/* this will also include proper config.h */
+/* #include "config.h" */
 
 #if HAVE_LIMITS_H
 #include <limits.h>

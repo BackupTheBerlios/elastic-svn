@@ -39,11 +39,11 @@
 #include "elastic.h"
 #include "debug.h"
 #include "private.h"
+#include "compat.h"
 
 #include "hashfunc.h"
 #include "stackrecycle.h"
 
-#include <string.h>
 
 EC_API EcInt tc_compiled = -1;
 

@@ -36,10 +36,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 #include "elastic.h"
 #include "private.h"
+#include "compat.h"
 #include "debug.h"
 
 #include "hashfunc.h"

@@ -37,6 +37,7 @@
 #include "basic.h"
 #include "hashfunc.h"
 #include "private.h"
+#include "compat.h"
 
 #if HAVE_LIMITS_H
 #include <limits.h>

@@ -34,9 +34,8 @@
  * ==========================================================================
  */
 
-#include <string.h>
-
 #include "private.h"
+#include "compat.h"
 #include "bytecode.h"
 #include "debug.h"
 

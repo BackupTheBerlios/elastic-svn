@@ -37,6 +37,7 @@
 #include "basic.h"
 #include "debug.h"
 #include "private.h"
+#include "compat.h"
 
 #include <elastic/os.h>
 

@@ -36,6 +36,7 @@
 
 #include "basic.h"
 #include "elastic.h"
+#include "compat.h"
 
 static EcUInt hash_int( EcAny key );
 

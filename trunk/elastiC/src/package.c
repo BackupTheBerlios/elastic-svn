@@ -39,6 +39,7 @@
 
 #include "elastic.h"
 #include "private.h"
+#include "compat.h"
 
 static EcInt _ec_package_get_public( EC_OBJ package, EcUInt sym );
 

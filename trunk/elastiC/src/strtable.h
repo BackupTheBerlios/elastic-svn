@@ -48,7 +48,7 @@ typedef struct _strtable ec_strtable;
  * ======================================================================== */
 
 EC_API ec_strtable *ec_strtable_create( EcInt nslots );
-EC_API void        ec_strtable_destroy( ec_strtable *table );
+EC_API void         ec_strtable_destroy( ec_strtable *table );
 
 EC_API EcBool ec_strtable_set( ec_strtable *table, const char *key, EcUInt  value );
 EC_API EcBool ec_strtable_get( ec_strtable *table, const char *key, EcUInt *value );

@@ -95,7 +95,7 @@
 #include <limits.h>
 #endif
 
-#if WIN32
+#if defined(WIN32)
 #  include <stdarg.h>
 #else
 #  if __STDC__
@@ -162,6 +162,15 @@ int setenv(const char *name, const char *value, int);
 	/* unsetenv */
 #if ! HAVE_UNSETENV
 void unsetenv(const char *name);
+#endif
+
+#if defined(EC_CCOMPILER_VC)
+#include <float.h>
+#include <direct.h>
+#define isinf  !_finite
+#define isnan  _isnan
+#define alloca _alloca
+#define getcwd _getcwd
 #endif
 
 #if ! HAVE_ISINF

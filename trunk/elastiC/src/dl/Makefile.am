@@ -37,7 +37,7 @@
 srcdir = @srcdir@
 VPATH = @srcdir@
 
-EXTRA_DIST = dl-ltdl.c dl-dl.c dl-no.c
+EXTRA_DIST = dl-ltdl.c dl-dl.c dl-no.c dl-win32.c
 noinst_LTLIBRARIES = libdl.la
 
 CFLAGS = $(CORE_CFLAGS)
@@ -57,12 +57,18 @@ NO_SRCS = dl-no.c
 else
 NO_SRCS =
 endif
+if DLBACKEND_WIN32
+WIN32_SRCS = dl-win32.c
+else
+WIN32_SRCS =
+endif
 
 # Chose your version here !
 static_sources = \
 	$(DL_SRCS)	\
 	$(LTDL_SRCS)	\
-	$(NO_SRCS)
+	$(NO_SRCS)	\
+	$(WIN32_SRCS)
 #static_sources = \
 #	dl-no.c
 

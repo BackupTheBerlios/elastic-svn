@@ -34,9 +34,8 @@
  * ==========================================================================
  */
 
-#include <limits.h>
-
 #include "basic.h"
+#include "compat.h"
 #include "memory.h"
 #include "object.h"
 #include "hashfunc.h"
@@ -50,12 +49,12 @@ typedef struct _entry
 	struct _entry *next;
 } StrTableEntry;
 
-typedef struct _strtable
+struct _strtable
 {
 	StrTableEntry **slot;
 	EcInt nslots;
 	EcInt nentries;
-} ec_strtable;
+};
 
 
 /* ========================================================================

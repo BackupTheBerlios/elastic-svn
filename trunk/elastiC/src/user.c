@@ -35,12 +35,12 @@
  */
 
 #include <stdlib.h>
-#include <string.h>
 
 #include "basic.h"
 #include "debug.h"
 
 #include "elastic.h"
+#include "compat.h"
 
 #include "private.h"
 

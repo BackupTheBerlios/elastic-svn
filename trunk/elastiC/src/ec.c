@@ -36,14 +36,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 #include "basic.h"
 #include "elastic.h"
+#include "compat.h"
 #include "conf.h"
 
 
-#if defined(MINGW32)
+#if defined(MINGW32) || defined(EC_CCOMPILER_VC)
 char *__progname = "ec";
 #endif
 

@@ -41,6 +41,7 @@
 
 #include "basic.h"
 #include "debug.h"
+#include "compat.h"
 
 #include "strtable.h"
 #include "memory.h"

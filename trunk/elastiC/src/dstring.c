@@ -34,8 +34,7 @@
  * ==========================================================================
  */
 
-#include <string.h>
-
+#include "compat.h"
 #include "dstring.h"
 #include "debug.h"
 

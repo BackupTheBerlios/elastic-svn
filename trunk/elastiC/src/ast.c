@@ -37,6 +37,7 @@
 #include "ast.h"
 #include "compile.h"
 #include "elastic.h"
+#include "compat.h"
 #include "private.h"
 
 #include "debug.h"

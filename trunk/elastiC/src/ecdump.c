@@ -36,15 +36,15 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 #include "basic.h"
 #include "elastic.h"
 #include "private.h"
+#include "compat.h"
 #include "debug.h"
 
 
-#if defined(MINGW32)
+#if defined(MINGW32) || defined(EC_CCOMPILER_VC)
 char *__progname = "ecdump";
 #endif
 

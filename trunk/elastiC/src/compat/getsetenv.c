@@ -82,7 +82,8 @@
  * apply anymore.
  */
 
-#include "config.h"
+#include "basic.h"												/* this will also include proper config.h */
+/* #include "config.h" */
 
 #include <stdlib.h>
 #if HAVE_STRING_H

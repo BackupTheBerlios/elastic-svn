@@ -38,6 +38,7 @@
 #include "debug.h"
 
 #include "elastic.h"
+#include "compat.h"
 
 #include "hashfunc.h"
 #include "primes.h"

@@ -38,11 +38,11 @@
 #include "debug.h"
 
 #include "elastic.h"
+#include "compat.h"
 #include "private.h"
 
 #include "string_m.h"
 
-#include <string.h>
 #include <ctype.h>
 
 static EC_OBJ EcLibString_Length( EC_OBJ stack, EcAny userdata );

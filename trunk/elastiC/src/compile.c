@@ -41,6 +41,7 @@
 #include "elastic.h"
 
 #include "private.h"
+#include "compat.h"
 #include "debug.h"
 
 /*

@@ -39,6 +39,7 @@
 #include "ast.h"
 #include "elastic_p.h"
 #include "private.h"
+#include "compat.h"
 #include <math.h>
 
 static void start( void );

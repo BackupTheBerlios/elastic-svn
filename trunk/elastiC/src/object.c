@@ -37,6 +37,7 @@
 #include "basic.h"
 #include "object.h"
 #include "debug.h"
+#include "compat.h"
 
 #include "strtable.h"
 #include "memory.h"

@@ -38,6 +38,7 @@
 #include "utility.h"
 #include "memory.h"
 #include "debug.h"
+#include "compat.h"
 
 #define DELTA 10
 

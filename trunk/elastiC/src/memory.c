@@ -34,9 +34,11 @@
  * ==========================================================================
  */
 
+#include "basic.h"												/* this will also include the proper cnf.h */
 #include "memory.h"
+#include "compat.h"
 #include "debug.h"
-#include "cnf.h"
+/* #include "cnf.h" */
 #include "conf.h"
 
 

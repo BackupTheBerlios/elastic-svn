@@ -92,6 +92,7 @@
 #include "elastic.h"
 #include "dstring.h"
 #include "private.h"
+#include "compat.h"
 
 /*
  * Actual printf innards.
