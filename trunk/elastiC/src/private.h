@@ -349,6 +349,16 @@ extern EcInt _ec_make_stats[EC_MAX_TYPES];
 #define IS_USER_SEQUENCE(obj)	(EC_USERP(obj) && CB_SEQUENCE(obj))
 #define IS_USER_NUMERIC(obj)	(EC_USERP(obj) && CB_NUMERIC(obj))
 
+/* sequence of symbols to OR-ed int mask */
+
+typedef struct
+{
+	EcUInt symbolid;
+	EcInt  value;
+} _ec_symbol2int;
+
+EC_OBJ _ec_symbol2value( const char *func_name, EcInt param_index, _ec_symbol2int *map, EC_OBJ obj, EcInt *options );
+EC_OBJ _ec_sequence2mask( const char *func_name, EcInt param_index, _ec_symbol2int *map, EC_OBJ seq, EcInt *options );
 
 /* ========================================================================
  * P R I V A T E   F U N C T I O N S
@@ -413,6 +423,10 @@ void      _ec_modstring_cleanup( void );
 /* Array module */
 EcBool    _ec_modarray_init( void );
 void      _ec_modarray_cleanup( void );
+
+/* Posix module */
+EcBool    _ec_modposix_init( void );
+void      _ec_modposix_cleanup( void );
 
 /* Misc */
 #define MAX_HASH_RECUR 2

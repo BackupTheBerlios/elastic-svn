@@ -574,6 +574,9 @@ EcBool _ec_register_builtin( void )
 	if (! _ec_modarray_init())
 		return FALSE;
 
+	if (! _ec_modposix_init())
+		return FALSE;
+
 	/* Object class */
 
 	EcObjectClassDef.superclass   = EC_NIL;
@@ -721,6 +724,7 @@ EcBool _ec_register_builtin( void )
 
 void _ec_cleanup_builtin( void )
 {
+	_ec_modposix_cleanup();
 	_ec_modarray_cleanup();
 	_ec_modstring_cleanup();
 	_ec_file_cleanup();

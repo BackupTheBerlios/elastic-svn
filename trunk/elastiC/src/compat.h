@@ -95,6 +95,10 @@
 #include <limits.h>
 #endif
 
+#if HAVE_ERRNO_H
+#include <errno.h>
+#endif
+
 #if defined(WIN32)
 #  include <stdarg.h>
 #else
@@ -107,6 +111,10 @@
 
 #ifndef PATH_MAX
 #define PATH_MAX 1024
+#endif
+
+#if ! defined(HAVE_SSIZE_T)
+typedef long ssize_t;
 #endif
 
 EC_BEGIN_DECLS

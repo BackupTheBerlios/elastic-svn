@@ -48,7 +48,9 @@ static_sources = \
 	string_m.c	\
 	string_m.h	\
 	array_m.c	\
-	array_m.h
+	array_m.h	\
+	posix_m.c	\
+	errno_switch.c
 
 libmodules_la_SOURCES = \
 	$(static_sources)
