@@ -157,7 +157,7 @@ static int doExecute( const char *name, int argc, char *argv[] )
 	{
 		strcpy( pkgname, name );
 		pkgname[l - strlen(EC_COMPILEDSUFFIX)] = '\0';
-		package = EcPackageLoad( NULL, name, /* execute: */ FALSE, /* executeImported: */ TRUE );
+		package = EcPackageLoadByPath( name, /* execute: */ FALSE, /* executeImported: */ TRUE );
 		if (! EC_PACKAGEP(package))
 			error( "Bad package binary file specified." );
 	} else if ((l >= 3) &&
@@ -184,7 +184,7 @@ static int doExecute( const char *name, int argc, char *argv[] )
 	} else
 	{
 		strcpy( pkgname, name );
-		package = EcPackageLoad( pkgname, NULL, /* execute: */ FALSE, /* executeImported: */ TRUE );
+		package = EcPackageLoadByName( pkgname, /* execute: */ FALSE, /* executeImported: */ TRUE );
 		if (! EC_PACKAGEP(package))
 			error( "Bad package binary file specified." );
 	}
