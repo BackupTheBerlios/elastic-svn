@@ -438,6 +438,12 @@ EC_OBJ    _ec_modposix_init( void );
 void      _ec_modposix_cleanup( void );
 #endif
 
+#if ECMODULE_ERRNO_STATIC
+/* errno module */
+EC_OBJ    _ec_moderrno_init( void );
+void      _ec_moderrno_cleanup( void );
+#endif
+
 /* Misc */
 #define MAX_HASH_RECUR 2
 EcUInt _ec_hash( EC_OBJ obj, EcInt recur );

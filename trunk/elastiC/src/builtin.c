@@ -579,6 +579,11 @@ EcBool _ec_register_builtin( void )
 		return FALSE;											/* :TODO: do something with exception */
 #endif
 
+#if ECMODULE_ERRNO_STATIC
+	if (EC_ERRORP(_ec_moderrno_init()))
+		return FALSE;											/* :TODO: do something with exception */
+#endif
+
 	/* Object class */
 
 	EcObjectClassDef.superclass   = EC_NIL;
@@ -726,6 +731,9 @@ EcBool _ec_register_builtin( void )
 
 void _ec_cleanup_builtin( void )
 {
+#if ECMODULE_ERRNO_STATIC
+	_ec_moderrno_cleanup();
+#endif
 #if ECMODULE_POSIX_STATIC
 	_ec_modposix_cleanup();
 #endif
