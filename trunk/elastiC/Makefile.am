@@ -70,10 +70,10 @@ endif
 
 dist-hook:
 	mkdir -p $(distdir)/build
-	cp -p $(srcdir)/build/* $(distdir)/build
+	cp -a $(srcdir)/build/* $(distdir)/build
 	mkdir -p $(distdir)/tools
-	cp -p $(srcdir)/tools/* $(distdir)/tools
+	cp -a $(srcdir)/tools/* $(distdir)/tools
 	mkdir -p $(distdir)/misc
-	cp -p $(srcdir)/misc/* $(distdir)/misc
+	cp -a $(srcdir)/misc/* $(distdir)/misc
 	mkdir -p $(distdir)/win32
 	cp -a $(srcdir)/win32/* $(distdir)/win32
