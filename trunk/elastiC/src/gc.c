@@ -620,6 +620,14 @@ static EcBool heap_grow( struct heap *heap )
 		return FALSE;
 
 	/* :TODO: do we need to clear memory in chunk ? */
+	/*
+	 * Answer: yes, we need to clean memory in chunk, since
+	 * later on (when releasing the object table) we'll test pointers
+	 * in chunk, releasing non-NULL ones.
+	 */
+	/* memset( ((char *)chunk) + sizeof(struct heap_chunk),
+			0x00, c_size * sizeof(struct _obj) ); */
+	memset( chunk, 0x00, sizeof(struct heap_chunk) + c_size * sizeof(struct _obj) );
 
 	new_nobjects = heap->n_objects + c_size;
 
