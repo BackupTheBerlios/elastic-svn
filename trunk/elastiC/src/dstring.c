@@ -145,7 +145,7 @@ EC_API char *ec_strcat( ec_string *ds, const char *string, EcInt length )
 	ASSERT( ds );
 
 	if (! string) return DSDATA(ds);
-	len = (length <= 0) ? strlen( string ) : length;
+	len = (length <= 0) ? strlen( string ) : length;			/* :TODO: < 0 instead of <= 0 */
 
 	if (len+1 > DSAVAIL(ds))
 	{

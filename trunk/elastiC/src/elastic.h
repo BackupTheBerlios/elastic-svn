@@ -417,6 +417,8 @@ EC_API ec_stream *ec_stream_stdin( void );
 EC_API ec_stream *ec_stream_stdout( void );
 EC_API ec_stream *ec_stream_stderr( void );
 
+EC_API const ec_streamdef *ec_filestream_def( void );
+
 /* Printing */
 
 	/* low-level printing */

@@ -251,6 +251,8 @@ struct EcPrivateStruct
 	ec_stream *stream_stderr;
 	/* :TODO: add a C level debug stream ? */
 
+	const ec_streamdef  *filestream_def;						/* filestream definition */
+
 	/* ==========================================================================================
 	 * M I S C
 	 * ========================================================================================== */
@@ -445,6 +447,13 @@ void      _ec_modstring_cleanup( void );
 /* Array module */
 EcBool    _ec_modarray_init( void );
 void      _ec_modarray_cleanup( void );
+
+#define ECMODULE_FILESTREAM_STATIC 1
+#if ECMODULE_FILESTREAM_STATIC
+/* filestream module */
+EC_OBJ    _ec_filestream_init( void );
+void      _ec_filestream_cleanup( void );
+#endif
 
 #if ECMODULE_POSIX_STATIC
 /* Posix module */

@@ -138,7 +138,7 @@ EC_API EC_OBJ EcLibFileClose( EC_OBJ obj )
 		int rv;
 		rv = pclose( EC_FILEH(obj) );
 		EC_FILEH_SET(obj, NULL);
-		EC_FILE_POPENED_SET(obj, NULL);
+		EC_FILE_POPENED_SET(obj, FALSE);
 		if (rv == -1)
 			return _ec_errno2exception( errno, obj, "in pclose" );
 		return EcMakeInt( rv );
@@ -148,7 +148,7 @@ EC_API EC_OBJ EcLibFileClose( EC_OBJ obj )
 	} else
 		fclose( EC_FILEH(obj) );
 	EC_FILEH_SET(obj, NULL);
-	EC_FILE_POPENED_SET(obj, NULL);
+	EC_FILE_POPENED_SET(obj, FALSE);
 	return EcTrueObject;
 }
 
