@@ -79,6 +79,10 @@
  *   fdopen
  *   fileno
  *
+ *   symlink
+ *   chroot
+ *   ioctl
+ *
  *   [signal handling functions]
  *
  *   [process properties functions]
@@ -223,7 +227,7 @@ static _ec_symbol2int sym2int_waitpid_options[] =
  * posix.* primitives
  * ======================================================================== */
 
-	/* files and directories */
+	/* section: files and directories */
 
 /* If PATH_MAX is not defined, look for MAXPATHLEN */
 #if !defined (PATH_MAX)
@@ -513,7 +517,7 @@ static EC_OBJ EcLibPosix_chown( EC_OBJ stack, EcAny userdata )
 #endif /* HAVE_CHOWN */
 }
 
-	/* file operations */
+	/* section: file operations */
 
 static EC_OBJ EcLibPosix_access( EC_OBJ stack, EcAny userdata )
 {
@@ -1010,9 +1014,9 @@ static EC_OBJ EcLibPosix_mkfifo( EC_OBJ stack, EcAny userdata )
 #endif /* HAVE_MKFIFO */
 }
 
-	/* process properties */
+	/* section: process properties */
 
-	/* process management */
+	/* section: process management */
 
 static EC_OBJ EcLibPosix_fork( EC_OBJ stack, EcAny userdata )
 {

@@ -115,6 +115,7 @@ static_sources = \
 	prime.c		\
 	printf.c	\
 	sprintf.c	\
+	stream.c	\
 	strtable.c	\
 	strtod.c	\
 	symbol.c	\
@@ -149,6 +150,7 @@ static_rt_sources = \
 	prime.c		\
 	printf.c	\
 	sprintf.c	\
+	stream.c	\
 	strtable.c	\
 	strtod.c	\
 	symbol.c	\
@@ -190,6 +192,7 @@ source_headers = \
 	os.h		\
 	prime.h		\
 	stackrecycle.h	\
+	stream.h	\
 	strtable.h	\
 	user.h		\
 	utility.h

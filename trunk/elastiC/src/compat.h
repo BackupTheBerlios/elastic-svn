@@ -117,10 +117,6 @@
 #define PATH_MAX 1024
 #endif
 
-#if ! defined(HAVE_SSIZE_T)
-typedef long ssize_t;
-#endif
-
 EC_BEGIN_DECLS
 
 /* Prototypes */

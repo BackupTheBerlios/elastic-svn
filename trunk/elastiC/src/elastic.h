@@ -46,6 +46,7 @@
 #include <elastic/basic.h>
 #include <elastic/os.h>
 #include <elastic/object.h>
+#include <elastic/stream.h>
 #include <elastic/user.h>
 #include <elastic/memory.h>
 #include <elastic/bytecode.h>
@@ -409,6 +410,12 @@ EC_API EC_OBJ EcCompileString( ec_compiler_ctxt ctxt,
 							   ec_compiler_options *opts );
 EC_API EC_OBJ EcMainExecute( EC_OBJ package );
 EC_API EC_OBJ EcExecute( EC_OBJ self, EC_OBJ at_class, EC_OBJ compiled, EC_OBJ stack );
+
+/* Generic I/O */
+
+EC_API ec_stream *ec_stream_stdin( void );
+EC_API ec_stream *ec_stream_stdout( void );
+EC_API ec_stream *ec_stream_stderr( void );
 
 /* Printing */
 

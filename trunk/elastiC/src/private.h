@@ -239,6 +239,19 @@ struct EcPrivateStruct
 	EcTypespec *typespec;
 
 	/* ==========================================================================================
+	 * S T R E A M   T Y P E S
+	 * ========================================================================================== */
+
+	ec_streamtype  streamtype_next;								/* next stream type index */
+	ec_streamdef  *streamspec;
+
+	/* standard streams */
+	ec_stream *stream_stdin;
+	ec_stream *stream_stdout;
+	ec_stream *stream_stderr;
+	/* :TODO: add a C level debug stream ? */
+
+	/* ==========================================================================================
 	 * M I S C
 	 * ========================================================================================== */
 
@@ -316,6 +329,7 @@ extern EcPrivate _ec_private;
 #define LPRIVATE(E) (lprivate->E)
 
 #define USERTYPE(code)	(PRIVATE(typespec)[(code)])
+#define STREAMDEF(code)	(PRIVATE(streamspec)[(code)])
 
 /* Qualified symbols */
 

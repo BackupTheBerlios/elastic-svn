@@ -109,7 +109,7 @@ typedef struct EcNumericCallbacks
 	ec_unaryop_fcn true_fcn;
 } EcNumericCallbacks;
 
-typedef struct EcTypespec
+typedef struct EcTypespec_struct
 {
 	EcInt  type;
 	char  *name;
