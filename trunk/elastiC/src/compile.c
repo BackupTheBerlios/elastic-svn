@@ -347,6 +347,11 @@ EC_API ec_compiler_ctxt EcCompilerContextCreate( void )
 
 	ctxt->labels = NULL;										/* hash mapping bytecode to list of labels   */
 
+	ctxt->package_package = EC_NIL;								/* package being compiled (or EC_NIL)        */
+	ctxt->package_saveHasReturned = FALSE;
+	ctxt->package_packageScope = NULL;							/* package scope                             */
+
+
 	/* compiler options */
 	opts_init( &ctxt->opts );
 
@@ -356,6 +361,10 @@ EC_API ec_compiler_ctxt EcCompilerContextCreate( void )
 EC_API void EcCompilerContextDestroy( ec_compiler_ctxt ctxt )
 {
 	opts_cleanup( &ctxt->opts );
+
+	ctxt->package_package = EC_NIL;								/* package being compiled (or EC_NIL)        */
+	ctxt->package_saveHasReturned = FALSE;
+	ctxt->package_packageScope = NULL;							/* package scope                             */
 
 	if (ctxt->labels) labels_cleanup( ctxt );
 	ASSERT( ctxt->labels == NULL );
