@@ -93,7 +93,7 @@ do {                                                        \
 
 #define SDBM_HASH_R(rv, buf, len)                           \
 do {                                                        \
-	register const unsigned char *bufp = (buf) + (len) = 1; \
+	register const unsigned char *bufp = (buf) + (len) - 1; \
 	register int i;                                         \
 	register EcDWord hash = 0;                              \
                                                             \
@@ -204,7 +204,7 @@ EC_API EcUInt ec_hash_djb_string( const char *key )
 	register EcDWord hash;
 
 	hash = 5381;
-	while (c = *key++)
+	while ((c = *key++))
 		hash = (hash + (hash << 5)) ^ c;	/* (hash * 33) ^ c */
 
 	return hash;
@@ -231,7 +231,7 @@ EC_API EcUInt ec_hash_sdbm_string( const char *key )
 	register int c;
 	register EcDWord hash = 0;
 
-	while (c = *key++)
+	while ((c = *key++))
 		hash = c + (hash << 6) + (hash << 16) - hash;
 
 	return hash;
