@@ -99,7 +99,6 @@ static_sources = \
 	elastic_s.l	\
 	elastic.c	\
 	errno_switch.c.incl \
-	filestream.c	\
 	gc.c		\
 	hashdefs.c	\
 	hashfunc.c	\
@@ -135,7 +134,6 @@ static_rt_sources = \
 	dstring.c	\
 	elastic.c	\
 	errno_switch.c.incl \
-	filestream.c	\
 	gc.c		\
 	hashdefs.c	\
 	hashfunc.c	\

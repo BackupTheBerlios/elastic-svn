@@ -55,7 +55,9 @@
 #include <elastic/hashtable.h>
 #include <elastic/list.h>
 #include <elastic/hashdefs.h>
+#if ECMODULE_FILE_OBSOLETE
 #include <elastic/file.h>
+#endif
 #include <elastic/hash.h>
 #include <elastic/stream_t.h>									/* elastiC language-level stream type */
 #include <elastic/filestream.h>									/* C level filestream support and elastiC filestream module */
@@ -415,11 +417,8 @@ EC_API EC_OBJ EcExecute( EC_OBJ self, EC_OBJ at_class, EC_OBJ compiled, EC_OBJ s
 
 /* Generic I/O */
 
-EC_API ec_stream *ec_stream_stdin( void );
-EC_API ec_stream *ec_stream_stdout( void );
-EC_API ec_stream *ec_stream_stderr( void );
-
-/* see filestream.h for filestream specific operations */
+	/* see stream.h for stream generic I/O API */
+	/* see filestream.h for filestream specific operations */
 
 /* Printing */
 

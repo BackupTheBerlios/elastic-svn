@@ -44,21 +44,6 @@
 
 #include "stream.h"
 
-EC_API ec_stream *ec_stream_stdin( void )
-{
-	return PRIVATE(stream_stdin);
-}
-
-EC_API ec_stream *ec_stream_stdout( void )
-{
-	return PRIVATE(stream_stdout);
-}
-
-EC_API ec_stream *ec_stream_stderr( void )
-{
-	return PRIVATE(stream_stderr);
-}
-
 EC_API const ec_streamdef *ec_stream_register( ec_streamdef *streamdef )
 {
 	/*
@@ -596,4 +581,19 @@ EC_API EcUInt ec_stream_hash( ec_stream *stream, EcInt recursion_level )
 
 	/* Equivalent object MUST have the same hash */
 	return 1;													/* this is all we can do ... */
+}
+
+EC_API ec_stream *ec_stream_stdin( void )
+{
+	return PRIVATE(stream_stdin);
+}
+
+EC_API ec_stream *ec_stream_stdout( void )
+{
+	return PRIVATE(stream_stdout);
+}
+
+EC_API ec_stream *ec_stream_stderr( void )
+{
+	return PRIVATE(stream_stderr);
 }

@@ -455,14 +455,12 @@ EcBool    _ec_stream_t_init( void );
 void      _ec_stream_t_cleanup( void );
 
 /* stream module (elastiC module) */
-#define ECMODULE_STREAM_STATIC 1
 #if ECMODULE_STREAM_STATIC
 EC_OBJ    _ec_modstream_init( void );
 void      _ec_modstream_cleanup( void );
 #endif
 
 /* filestream module */
-#define ECMODULE_FILESTREAM_STATIC 1
 #if ECMODULE_FILESTREAM_STATIC
 EC_OBJ    _ec_modfilestream_init( void );
 void      _ec_modfilestream_cleanup( void );

@@ -42,7 +42,13 @@ VPATH = @srcdir@
 CLEANFILES = $(wildcard $.o)  $(wildcard $.dll) $(wildcard $.ecc)
 
 elasticlibdir = $(prefix)/lib/elastic-$(EC_API_VERSION)
-elasticlib_DATA = file.ec file.ecc os.ec os.ecc
+elasticlib_DATA = os.ec os.ecc $(file_module_data)
+
+if ECMODULE_FILE_COMPAT
+file_module_data = file.ec file.ecc
+else
+file_module_data =
+endif
 
 EXTRA_DIST = Re.ec
 
