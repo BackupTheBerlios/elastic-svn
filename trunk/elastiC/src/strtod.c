@@ -204,7 +204,7 @@ typedef	u_int32_t ULong;
 #if HAVE_STDIO_H
 #include "stdio.h"
 #endif
-#define Bug(x) {fprintf(stderr, "%s\n", x); exit(1);}
+#define Bug(x) {ec_strerr_printf("%s\n", x); exit(1);}
 #endif
 #endif
 

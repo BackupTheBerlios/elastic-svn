@@ -119,10 +119,10 @@ EC_API EcInt EcPackageVariable( EC_OBJ package, const char *symbol, EC_OBJ value
 	qualified = EcNamePrefix( &packagename,  &fullsymbol ) ? TRUE : FALSE;
 	EcNameSuffix( &symbolsuffix, &fullsymbol );
 
-/*	fprintf( stderr, "EcPackageVariable   symbol: '%s'   package: '%s'   qualified: %s\n",
+/*	ec_stderr_printf( "EcPackageVariable   symbol: '%s'   package: '%s'   qualified: %s\n",
 			 symbol, EC_NNULLP(package) ? EC_STRDATA(EC_PACKAGENAME(package)) : "--", qualified ? "YES" : "NO" );
-	fprintf( stderr, "       suffix: '%s'\n", ec_strdata( &symbolsuffix ) );
-	fprintf( stderr, "  packagename: '%s'\n", ec_strdata( &packagename ) );*/
+	ec_stderr_printf( "       suffix: '%s'\n", ec_strdata( &symbolsuffix ) );
+	ec_stderr_printf( "  packagename: '%s'\n", ec_strdata( &packagename ) );*/
 
 	if (! qualified)
 	{

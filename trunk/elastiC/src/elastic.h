@@ -101,6 +101,8 @@ typedef struct ec_compiler_options_struct
 	EcBool  save;												/* TRUE if compiled packages must be saved to disk */
 	char      *outputfile;										/* output filename or NULL                         */
 	ec_stream *outputstream;									/* output stream (or NULL)                         */
+
+	EcBool  lazy;												/* lazy programmer: allow implicit variable declaration */
 } ec_compiler_options;
 
 /* Qualified Symbol */

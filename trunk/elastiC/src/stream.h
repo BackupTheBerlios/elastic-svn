@@ -34,8 +34,8 @@
  * ==========================================================================
  */
 
-#ifndef __STREAM_H
-#define __STREAM_H
+#ifndef EC_STREAM_H
+#define EC_STREAM_H
 
 #include <stdarg.h>
 
@@ -248,6 +248,16 @@ EC_API ec_stream           *ec_stream_stdin( void );
 EC_API ec_stream           *ec_stream_stdout( void );
 EC_API ec_stream           *ec_stream_stderr( void );
 
+/* convenience functions */
+
+EC_API ssize_t				ec_stdout_printf( const char *format, ... );
+EC_API ssize_t				ec_stdout_vprintf( const char *format, va_list ap );
+EC_API ssize_t				ec_stderr_printf( const char *format, ... );
+EC_API ssize_t				ec_stderr_vprintf( const char *format, va_list ap );
+
+EC_API EcBool				ec_stdout_flush( void );
+EC_API EcBool				ec_stderr_flush( void );
+
 EC_END_DECLS
 
-#endif __STREAM_H
+#endif /* EC_STREAM_H */

@@ -496,13 +496,13 @@ EC_API EC_OBJ EcLibFile_Printf( EC_OBJ stack, EcAny userdata )
 		return res;
 
 	ASSERT( EC_STRINGP(res) );
-/*	fprintf( stderr, "WRITTEN %ld %d string: '%s'\n", EC_STRLEN(res), strlen( EC_STRDATA(res) ), EC_STRDATA(res) );*/
+/*	ec_stderr_printf( "WRITTEN %ld %d string: '%s'\n", EC_STRLEN(res), strlen( EC_STRDATA(res) ), EC_STRDATA(res) );*/
 	r = fwrite( EC_STRDATA(res), 1, EC_STRLEN(res), EC_FILEH(f) );
 	if (r != EC_STRLEN(res))
 	{
 		if (ferror( EC_FILEH(f) ))
-			fprintf( stderr, "FILE ERROR: %d %s\n", errno, strerror( errno ) );
-		fprintf( stderr, "ARGH: %ld\n", (long)r );
+			ec_stderr_printf( "FILE ERROR: %d %s\n", errno, strerror( errno ) );
+		ec_stderr_printf( "ARGH: %ld\n", (long)r );
 		r = EOF;
 	}
 

@@ -88,7 +88,7 @@ EC_API EcUInt EcInternSymbol( const char *string )
 	if (! PRIVATE(symName)[PRIVATE(currentId)])
 		return 0;
 
-	/*fprintf( stderr, "EcInternSymbol %3d <- %s\n", PRIVATE(currentId), string );*/
+	/*ec_stderr_printf( "EcInternSymbol %3d <- %s\n", PRIVATE(currentId), string );*/
 	return PRIVATE(currentId);
 }
 

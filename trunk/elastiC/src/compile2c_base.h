@@ -135,8 +135,8 @@ do {                                                                        \
 #if 0
 static void dmp( const char *msg, EC_OBJ stack, EC_OBJ compiled )
 {
-	ec_fprintf( stderr, "-> %-15s    STACK   : %r   0x%08lX       COMPILED: %r   0x%08lX\n",
-				msg, stack, (unsigned long)stack, compiled, (unsigned long)compiled );
+	ec_stderr_printf( "-> %-15s    STACK   : %r   0x%08lX       COMPILED: %r   0x%08lX\n",
+					  msg, stack, (unsigned long)stack, compiled, (unsigned long)compiled );
 }
 
 #define DMP(msg, sf,comp)		do { dmp( msg, sf, comp ); } while (0)

@@ -281,7 +281,10 @@ EC_API EC_OBJ EcLibStream_Gets( EC_OBJ stack, EcAny userdata )
 		return EC_STREAM_STR(obj)->exc;
 	}
 
-	res = EcMakeString( ec_strdata(&ds), -1 );
+	if (nread <= 0)
+		res = EC_NIL;
+	else
+		res = EcMakeString( ec_strdata(&ds), -1 );
 	ec_string_cleanup( &ds );
 	return res;
 }
