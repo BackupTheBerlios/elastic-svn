@@ -65,6 +65,7 @@ install-exec-local:
 	$(mkinstalldirs) $(DESTDIR)$(bindir)
 	$(INSTALL_SCRIPT) $(srcdir)/makemodule $(DESTDIR)$(bindir)
 	$(INSTALL_SCRIPT) $(srcdir)/mingw32-makedll $(DESTDIR)$(bindir)
+	$(INSTALL_SCRIPT) $(srcdir)/cygwin-makedll $(DESTDIR)$(bindir)
 else
 install-exec-local:
 	$(mkinstalldirs) $(DESTDIR)$(bindir)
