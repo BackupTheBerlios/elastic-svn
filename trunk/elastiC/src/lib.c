@@ -457,7 +457,7 @@ EC_API EC_OBJ EcLibArity( EC_OBJ stack, EcAny userdata )
 	default:
 		if (EC_COMPILEDP(callable))
 		{
-			EcInt n_req;
+			/* EcInt n_req; */
 
 			ismethod = EC_COMPILEDISMETHOD(callable);
 			nargs_req = EC_COMPILEDNARG(callable) - (ismethod ? 2 : 0);
