@@ -34,7 +34,9 @@
 # ==========================================================================
 
 #EXTRA_DIST = LICENSE ACKNOWLEDGEMENTS elastic.m4 makemodule mkwin32.bat mingw32-makedll cygwin-makedll
-EXTRA_DIST = LICENSE ACKNOWLEDGEMENTS makemodule mkwin32.bat mingw32-makedll cygwin-makedll
+EXTRA_DIST = LICENSE ACKNOWLEDGEMENTS 				\
+	autogen.sh subautogen.sh aclocal-flags			\
+	makemodule mkwin32.bat mingw32-makedll cygwin-makedll
 SUBDIRS = src aclocal . doc regress
 
 #aclocaldir = $(datadir)/aclocal
@@ -70,11 +72,13 @@ install-exec-local:
 endif
 
 dist-hook:
-	mkdir -p $(distdir)/build
-	cp -a $(srcdir)/build/* $(distdir)/build
 	mkdir -p $(distdir)/tools
 	cp -a $(srcdir)/tools/* $(distdir)/tools
 	mkdir -p $(distdir)/misc
 	cp -a $(srcdir)/misc/* $(distdir)/misc
 	mkdir -p $(distdir)/win32
 	cp -a $(srcdir)/win32/* $(distdir)/win32
+#	mkdir -p $(distdir)/build
+#	cp -a $(srcdir)/build/* $(distdir)/build
+	cp -a $(srcdir)/build/rules.mk $(distdir)/build
+	cp -a $(srcdir)/build/develconf* $(distdir)/build
