@@ -315,7 +315,7 @@ static EcFloat _mod( EcFloat a, EcFloat b )
 {
 	EcInt q;
 
-	if ((a >= 0.0) && (a <= b))
+	if ((a >= 0.0) && (a < b))
 		return a;
 
 	q = (EcInt) (a / b);
