@@ -133,6 +133,24 @@ EC_API EC_OBJ EcLibPrint( EC_OBJ stack, EcAny userdata )
 	return EC_NIL;
 }
 
+EC_API EC_OBJ EcLibPrintNL( EC_OBJ stack, EcAny userdata )
+{
+	EC_OBJ *obj;
+	EC_OBJ res;
+	EcInt  num = 0;
+	EcInt  i;
+
+	res = EcParseStackFunction( "basic.printnl", TRUE, stack, "|o", &num, &obj );
+	if (EC_ERRORP(res))
+		return res;
+
+	for (i = 0; i < num; i++)
+		ec_fprintf( stdout, "%w", obj[i] );
+	ec_fprintf( stdout, "\n" );
+
+	return EC_NIL;
+}
+
 EC_API EC_OBJ EcLibSPrintf( EC_OBJ stack, EcAny userdata )
 {
 	char   *fmt;
@@ -1412,6 +1430,7 @@ EcBool _ec_lib_init( void )
 	EcAddPrimitive( "basic.int",         EcLibInt );
 	EcAddPrimitive( "basic.float",       EcLibFloat );
 	EcAddPrimitive( "basic.print",       EcLibPrint );
+	EcAddPrimitive( "basic.printnl",     EcLibPrintNL );
 	EcAddPrimitive( "basic.sprintf",     EcLibSPrintf );
 	EcAddPrimitive( "basic.printf",      EcLibPrintf );
 	EcAddPrimitive( "basic.copy",        EcLibCopy );
