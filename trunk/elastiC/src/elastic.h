@@ -387,7 +387,7 @@ EC_API EC_OBJ EcSetQVariable( const char *qualifiedsymbol, EC_OBJ value );			   
 
 /* Primitive procedures */
 
-EC_API EcBool EcAddPrimitive( const char *name, EcCPrimitive prim ); 							/* name is qualified */
+EC_API EcBool EcAddPrimitive( const char *name, EcCPrimitive prim ); 						/* name is qualified */
 EC_API EcBool EcAddPrimitiveUserData( const char *name, EcCPrimitive prim,					/* name is qualified */
 									  EcAny userdata, EcBool userdata_is_object );
 

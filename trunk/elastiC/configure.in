@@ -493,7 +493,11 @@ AC_CHECK_FUNCS(getcwd select socket strerror)
 AC_CHECK_FUNCS(isinf isnan)
 AC_CHECK_FUNCS(getopt)
 dnl POSIX functions
-AC_CHECK_FUNCS(access open creat close read write)
+AC_CHECK_FUNCS(access open creat close read write fcntl fstat lseek dup dup2)
+AC_CHECK_FUNCS(pipe mkfifo umask fdopen fileno)
+AC_CHECK_FUNCS(fork execl execle execlp execv execve execvp waitpid _exit)
+AC_CHECK_FUNCS(kill sleep pause alarm setuid setgid)
+AC_CHECK_FUNCS(getpid getppid getlogin getuid geteuid cuserid getgid getegid)
 
 ELASTIC_VA_COPY
 
