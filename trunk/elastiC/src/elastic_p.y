@@ -424,7 +424,7 @@ basic.parameter.list
 ;
 
 parameter.list
-	: /* EMPTY */                                              { $$ = makeParamList( FALSE, NULL ); SAVE($$, @1);       }
+	: /* EMPTY */                                              { $$ = makeParamList( FALSE, NULL ); /* SAVE($$, @1); */ }
 	| basic.parameter.list                                     { $$ = makeParamList( FALSE, $1 ); SAVE($$, @1);         }
 	| basic.parameter.list T_ELLIPSIS                          { $$ = makeParamList( TRUE,  $1 ); SAVE($$, @1);         }
 ;

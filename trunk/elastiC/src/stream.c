@@ -409,6 +409,7 @@ EC_API ssize_t ec_stream_gets_slow( ec_stream *stream, ec_string *dst, ssize_t m
 	}
 
 	ec_stream_exception_clear( stream );
+	nread = 0;
 	if (maxchars >= 0)
 	{
 		/* limited */
@@ -466,6 +467,7 @@ EC_API ssize_t ec_stream_getcstr( ec_stream *stream, char *dst, ssize_t maxchars
 	if (maxchars < 1)
 		return 0;
 
+	nread = 0;
 	if (stream->streamdef->gets_fcn)
 	{
 		ec_string ds;

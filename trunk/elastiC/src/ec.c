@@ -129,7 +129,11 @@ int main( int argc, char *argv[] )
 	/* skip package */
 	argc--; name = *argv++;
 
+#ifdef EC_THREADING
+	if (! EcThreadingInit() || ! EcInit())
+#else
 	if (! EcInit())
+#endif
 		error( "can't initialize elastiC environment" );
 
 	doExecute( name, argc, argv );

@@ -127,7 +127,11 @@ int main( int argc, char *argv[] )
 
 	source = argv[optind];
 
+#ifdef EC_THREADING
+	if (! EcThreadingInit() || ! EcInit())
+#else
 	if (! EcInit())
+#endif
 	{
 		error( "can't initialize elastiC environment" );
 		goto onError;

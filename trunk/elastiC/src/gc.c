@@ -299,7 +299,7 @@ inline EC_API EC_OBJ EcAllocObject( void )
 	EC_OBJ res;
 	register EcPrivate *lprivate;
 
-	lprivate = &_ec_private;
+	lprivate = PPRIVATE;
 
 	/* Check and try */
 	CHECK_AND_ALLOC;

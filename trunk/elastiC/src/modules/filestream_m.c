@@ -412,7 +412,7 @@ static EcBool filestream_ready( ec_stream *s )
 
 static EcBool filestream_seek( ec_stream *s, ssize_t offset, ec_stream_seek_type whence )
 {
-	int wh;
+	int wh = SEEK_SET;
 
 	switch (whence)
 	{

@@ -48,6 +48,9 @@
 #include <elastic/ast.h>
 #include <elastic/bitstring.h>
 
+#ifdef EC_THREADING
+#include <pthread.h>
+#endif
 
 EC_BEGIN_DECLS
 
@@ -325,13 +328,24 @@ struct EcPrivateStruct
 	/* Error */
 };
 
+#ifdef EC_THREADING
+extern pthread_key_t _ec_private;
+#else
 extern EcPrivate _ec_private;
+#endif
 
 /* ========================================================================
  * M A C R O S
  * ======================================================================== */
 
+#ifdef EC_THREADING
+#define PRIVATE(E) ((EcPrivate *) pthread_getspecific(_ec_private))->E
+#define PPRIVATE pthread_getspecific(_ec_private)
+#else
 #define PRIVATE(E) (_ec_private.E)
+#define PPRIVATE &_ec_private
+#endif
+
 #define LPRIVATE(E) (lprivate->E)
 
 #define USERTYPE(code)	(PRIVATE(typespec)[(code)])

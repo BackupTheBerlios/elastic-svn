@@ -534,7 +534,7 @@ EC_API EC_OBJ EcExecute( EC_OBJ self, EC_OBJ at_class, EC_OBJ compiled, EC_OBJ s
 	ASSERT( EC_COMPILEDP(compiled) );
 	ASSERT( EC_STACKP(stack) );
 
-	lprivate = &_ec_private;
+	lprivate = PPRIVATE;
 
 #if EC_COMPILE2C
 	if (EC_COMPILEDCCALLABLE(compiled))							/* Check for a C-callable #JP */

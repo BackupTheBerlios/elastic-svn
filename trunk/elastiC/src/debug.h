@@ -37,6 +37,8 @@
 #ifndef __DEBUG_H
 #define __DEBUG_H
 
+#include <elastic/private.h>
+
 EC_BEGIN_DECLS
 
 /* #undef EC_DEBUG */
@@ -89,8 +91,8 @@ do { \
 	if (!(A)) { \
 		EC_PRINTFUNC; \
 		fprintf(stderr, "\tAssertion failed: %s is false\n", #A);	\
-		if (_ec_private.rt.line_num > 0)	\
-			fprintf(stderr, "\t(Interpreted program line %ld)\n", ((long)_ec_private.rt.line_num));	\
+		if (PRIVATE(rt).line_num > 0)	\
+			fprintf(stderr, "\t(Interpreted program line %ld)\n", ((long)PRIVATE(rt).line_num));	\
 		fprintf(stderr, "\n");	\
 		fflush(stderr); \
 		abort(); \
