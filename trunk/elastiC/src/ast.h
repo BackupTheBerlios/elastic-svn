@@ -145,6 +145,7 @@ typedef struct
 typedef struct
 {
 	ASTNode arglist;
+	EcBool  oldstyle;
 } HashConstruction;
 
 typedef struct
@@ -557,7 +558,7 @@ ASTNode makeConstInt( EcInt number ), makeConstFloat( EcFloat number ),
 	    makeSymbol( EcUInt symid ), makeQualifiedSymbol( ASTNode prefix, ASTNode symbol ),
 		makeVariable( ASTNode node ),
 		makeArrayCons( ASTNode arglist ),
-		makeHashCons( ASTNode arglist ),
+		makeHashCons( ASTNode arglist, EcBool oldstyle ),
 	    makeUnary( UnaryOp op, ASTNode operand ),
 	    makeBinary( BinaryOp op, ASTNode first, ASTNode second ),
 		makeConditional( ASTNode cond, ASTNode texpr, ASTNode fexpr ),
@@ -592,6 +593,13 @@ ASTNode makeConstInt( EcInt number ), makeConstFloat( EcFloat number ),
 		makeClass( ASTNode decl, ASTNode name, ASTNode base, ASTNode body ),
 		makeMethod( EcBool classmethod, ASTNode name, ASTNode paramList, ASTNode body ),
 		makePackage( ASTNode name );
+
+ASTNode makePair( ASTNode left, ASTNode right );
+ASTNode astPairLeft( ASTNode astPair );
+ASTNode astPairRight( ASTNode astPair );
+
+ASTNode astListHead( ASTNode astList );
+ASTNode astListTail( ASTNode astList );
 
 #if defined(WITH_STDIO) && EC_AST_DEBUG
 void    ASTPrint( int lev, ASTNode node );

@@ -192,6 +192,8 @@ WS		[ \t\n]
 "'"{CSYM}                      { start(); count(); yylval.sym = EcInternSymbol( yytext + 1 ); return T_CONSTSYM; }
 "#"{CSYM}                      { start(); count(); yylval.sym = EcInternSymbol( yytext + 1 ); return T_CONSTSYM; }
 
+":"			       { start(); count(); return T_HASHKEYSEP; }
+
 "<="                           { start(); count(); return T_LE;      }
 ">="                           { start(); count(); return T_GE;      }
 "=="                           { start(); count(); return T_EQ;      }
