@@ -277,7 +277,10 @@ EC_API EcBool EcInit( void )
 
 	PRIVATE(filestream_def) = NULL;
 
-	/* :TODO: register filestream and initialize default streams */
+	/*
+	 * The `filestream' stream will be registered in builtin.c
+	 * There the stdio streams will be initialized also.
+	 */
 
 	PRIVATE(package)   = NULL;
 	PRIVATE(npackages) = 0;
@@ -342,6 +345,9 @@ EC_API void EcCleanup( void )
 #endif
 
 	_ec_packageio_cleanup();
+
+	/* cleanup built-in packages, types, primitives & classes */
+	_ec_cleanup_builtin();
 
 	if (PRIVATE(builtin_name))
 		ec_hash_destroy( PRIVATE(builtin_name) );

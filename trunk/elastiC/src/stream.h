@@ -162,7 +162,7 @@ struct ec_streamdef_struct
  */
 struct ec_stream_struct
 {
-	ec_streamdef  *streamdef;
+	const ec_streamdef  *streamdef;
 
 	union {
 		EcInt   v_int;
@@ -185,7 +185,7 @@ struct ec_stream_struct
 
 EC_API const ec_streamdef  *ec_stream_register( ec_streamdef *streamdef );		/* returns a pointer to an ec_streamdef with
 																				   an updated streamtype member */
-EC_API ec_stream           *ec_stream_create( ec_streamdef *streamdef, EC_OBJ *excp, ... );
+EC_API ec_stream           *ec_stream_create( const ec_streamdef *streamdef, EC_OBJ *excp, ... );
 EC_API ec_stream           *ec_stream_create_from_type( ec_streamtype streamtype, EC_OBJ *excp, ... );
 EC_API EcBool               ec_stream_destroy( ec_stream *stream, EC_OBJ *excp );
 
