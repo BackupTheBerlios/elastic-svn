@@ -57,6 +57,8 @@
 #include <elastic/hashdefs.h>
 #include <elastic/file.h>
 #include <elastic/hash.h>
+#include <elastic/stream_t.h>									/* elastiC language-level stream type */
+#include <elastic/filestream.h>									/* C level filestream support and elastiC filestream module */
 
 #include <elastic/lib.h>
 
@@ -417,7 +419,7 @@ EC_API ec_stream *ec_stream_stdin( void );
 EC_API ec_stream *ec_stream_stdout( void );
 EC_API ec_stream *ec_stream_stderr( void );
 
-EC_API const ec_streamdef *ec_filestream_def( void );
+/* see filestream.h for filestream specific operations */
 
 /* Printing */
 

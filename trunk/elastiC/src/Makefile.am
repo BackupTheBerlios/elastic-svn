@@ -181,6 +181,7 @@ source_headers = \
 	dstring.h	\
 	elastic.h	\
 	file.h		\
+	filestream.h	\
 	floatio.h	\
 	hash.h		\
 	hashdefs.h	\
@@ -195,6 +196,7 @@ source_headers = \
 	prime.h		\
 	stackrecycle.h	\
 	stream.h	\
+	stream_t.h	\
 	strtable.h	\
 	user.h		\
 	utility.h

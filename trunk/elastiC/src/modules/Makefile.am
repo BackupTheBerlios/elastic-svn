@@ -97,7 +97,8 @@ static_sources = \
 	array_m.h	\
 	$(posix_static) \
 	$(errno_static)	\
-	errno_m_body.c.incl
+	errno_m_body.c.incl	\
+	stream_m.c
 
 libmodules_la_SOURCES = \
 	$(static_sources)
