@@ -479,7 +479,7 @@ dnl Use new (2.53) AC_CHECK_TYPE / AC_CHECK_TYPES semantic
 AC_CHECK_TYPES([quad_t, u_quad_t])
 dnl ELASTIC_CHECK_TYPE(quad_t, , long, HAVE_QUAD_T)
 dnl ELASTIC_CHECK_TYPE(u_quad_t, , unsigned long, HAVE_U_QUAD_T)
-AC_CHECK_TYPES([ssize_t])
+AC_CHECK_TYPES([ssize_t, off_t])
 
 dnl Checks for library functions.
 AC_FUNC_ALLOCA

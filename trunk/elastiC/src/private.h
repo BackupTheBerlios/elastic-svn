@@ -357,8 +357,12 @@ typedef struct
 	EcInt  value;
 } _ec_symbol2int;
 
-EC_OBJ _ec_symbol2value( const char *func_name, EcInt param_index, _ec_symbol2int *map, EC_OBJ obj, EcInt *options );
-EC_OBJ _ec_sequence2mask( const char *func_name, EcInt param_index, _ec_symbol2int *map, EC_OBJ seq, EcInt *options );
+EC_OBJ _ec_symbol2mask( const char *func_name, EcInt param_index, _ec_symbol2int *map,
+						EcBool nullok, EC_OBJ sym, EcInt *options );
+EC_OBJ _ec_sequence2mask( const char *func_name, EcInt param_index, _ec_symbol2int *map,
+						  EcBool nullok, EcBool singleok, EC_OBJ seq, EcInt *options );
+EC_OBJ _ec_mask2sequence( const char *func_name, _ec_symbol2int *map,
+						  unsigned long mask );
 
 /* ========================================================================
  * P R I V A T E   F U N C T I O N S

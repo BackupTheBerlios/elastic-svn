@@ -2058,7 +2058,7 @@ static void compileForIn( ec_compiler_ctxt ctxt, ASTNode node )
 	/* We need an hidden variable to keep the index */
 	idxvar = getServiceVariable( ctxt, CCTXT(currentScope) );
 
-	/* Intialization */
+	/* Initialization */
 	initexpr = makeConstInt( 0 );
 	init     = makeExprStmt( makeAssign( idxvar, initexpr ) );
 	compile( ctxt, init );
