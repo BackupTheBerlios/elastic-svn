@@ -278,7 +278,8 @@ EC_API EcBool EcInit( void )
 	PRIVATE(filestream_def) = NULL;
 
 	/*
-	 * The `filestream' stream will be registered in builtin.c
+	 * The `filestream' stream will be registered in builtin.c,
+	 * when available statically (as a statically builtin module).
 	 * There the stdio streams will be initialized also.
 	 */
 

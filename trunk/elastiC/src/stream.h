@@ -209,7 +209,9 @@ EC_API ec_stream_mode       ec_stream_getmode( ec_stream *stream );
 EC_API EcBool               ec_stream_eof( ec_stream *stream );
 EC_API EcBool			    ec_stream_flush( ec_stream *stream );
 EC_API ssize_t              ec_stream_read( ec_stream *stream, void *buf, ssize_t count );
+EC_API ssize_t              ec_stream_readn( ec_stream *stream, void *buf, ssize_t count );			/* handles short-reads  */
 EC_API ssize_t              ec_stream_write( ec_stream *stream, const void *buf, ssize_t count );
+EC_API ssize_t              ec_stream_writen( ec_stream *stream, const void *buf, ssize_t count );	/* handles short-writes */
 EC_API EcBool               ec_stream_unread( ec_stream *stream, const void *buf, ssize_t count );
 EC_API EcByte               ec_stream_getch( ec_stream *stream );
 EC_API ssize_t              ec_stream_gets_slow( ec_stream *stream,
