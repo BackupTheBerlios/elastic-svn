@@ -1918,6 +1918,7 @@ static EC_OBJ read_object( objectmap map, ec_stream *stream, EcBool executeImpor
 			EC_COMPILEDNAME(obj)     = name;
 			EC_COMPILEDISMETHOD(obj) = ismethod;
 			EC_COMPILEDINFO(obj)     = info;
+			EC_COMPILEDCCALLABLE(obj) = NULL;
 			break;
 		}
 

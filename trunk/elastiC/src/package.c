@@ -441,7 +441,8 @@ static EcInt _ec_package_get_public( EC_OBJ package, EcUInt sym )
 	for (i = 0; i < EC_PACKAGENEXPORT(package); i++)
 	{
 		if (EC_PACKAGEEXPORT(package)[i].sym == sym)
-			return i;
+			return EC_PACKAGEEXPORT(package)[i].pos;			/* #JP bug fixed: it returned `i' */
+			/* return i; */
 	}
 
 	return -1;

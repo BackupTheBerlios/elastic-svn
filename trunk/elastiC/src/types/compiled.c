@@ -110,6 +110,8 @@ EC_API EC_OBJ EcMakeCompiled( EC_OBJ package, const char *name, EcInt nargs, EcI
 			   EcMakeSymbolFromId( PRIVATE(lineID) ),
 			   EcMakeArray( 4 ) );
 
+	EC_COMPILEDCCALLABLE(obj) = NULL;							/* #JP */
+
 	return obj;
 }
 
@@ -272,6 +274,8 @@ static EC_OBJ compiled_copy( EC_OBJ obj, EcCopyType type )
 	}
 	EC_COMPILEDINFO(res) = copy;
 
+	EC_COMPILEDCCALLABLE(res) = EC_COMPILEDCCALLABLE(obj);		/* #JP */
+
 	return res;
 }
 
@@ -310,6 +314,7 @@ static void compiled_free( EC_OBJ obj )
 	EC_COMPILEDNAME(obj)     = EC_NIL;
 	EC_COMPILEDISMETHOD(obj) = FALSE;
 	EC_COMPILEDINFO(obj)     = EC_NIL;
+	EC_COMPILEDCCALLABLE(obj) = NULL;							/* #JP */
 
 	ec_free( EC_COMPILED(obj) );
 	EC_COMPILED(obj) = NULL;

@@ -47,6 +47,7 @@ typedef struct _obj *EC_OBJ;
 typedef struct EcPrivateStruct EcPrivate;
 typedef EC_OBJ (*EcCPrimitive)( EC_OBJ stack, EcAny userdata );
 typedef EC_OBJ (*EcCMethod)( EC_OBJ self, EC_OBJ in_class, EC_OBJ stack );
+typedef EC_OBJ (*EcCCallable)( EC_OBJ self, EC_OBJ at_class, EC_OBJ compiled, EC_OBJ stack ); /* #JP */
 
 #include <elastic/basic.h>
 #include <elastic/user.h>
@@ -148,6 +149,8 @@ typedef struct _compiled
 	 *                 elastiC array of tuples (bytecode index, line number)
 	 */
 	EC_OBJ info;												/* info object*/
+
+	EcCCallable ccallable;										/* C callable #JP */
 } EcCompiled;
 
 struct ec_public_sym
@@ -482,6 +485,7 @@ extern EC_API EcInt tc_object;
 #define EC_COMPILEDNAME(obj)		(EC_COMPILED(obj)->name)
 #define EC_COMPILEDISMETHOD(obj)	(EC_COMPILED(obj)->ismethod)
 #define EC_COMPILEDINFO(obj)		(EC_COMPILED(obj)->info)
+#define EC_COMPILEDCCALLABLE(obj)	(EC_COMPILED(obj)->ccallable) /* #JP */
 #define EC_HANDLER(obj)				((obj)->v.handler)
 #define EC_HANDLERTYPE(obj)			(EC_HANDLER(obj).type)
 #define EC_HANDLERCODE(obj)			(EC_HANDLER(obj).code)

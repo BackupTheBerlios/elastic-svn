@@ -59,6 +59,9 @@
 #include <elastic/file.h>
 #endif
 #include <elastic/hash.h>
+#if EC_COMPILE2C
+#include <elastic/compile2c.h>
+#endif
 #include <elastic/stream_t.h>									/* elastiC language-level stream type */
 #include <elastic/filestream.h>									/* C level filestream support and elastiC filestream module */
 
