@@ -125,9 +125,10 @@ EC_API EC_OBJ EcLibPrint( EC_OBJ stack, EcAny userdata )
 	if (EC_ERRORP(res))
 		return res;
 
-	for (i = 0; i < num; i++)
+	if (PRIVATE(stream_stdout))
 	{
-		ec_fprintf( stdout, "%w", obj[i] );
+		for (i = 0; i < num; i++)
+			ec_stream_printf( PRIVATE(stream_stdout), "%w", obj[i] );
 	}
 
 	return EC_NIL;
@@ -144,9 +145,12 @@ EC_API EC_OBJ EcLibPrintNL( EC_OBJ stack, EcAny userdata )
 	if (EC_ERRORP(res))
 		return res;
 
-	for (i = 0; i < num; i++)
-		ec_fprintf( stdout, "%w", obj[i] );
-	ec_fprintf( stdout, "\n" );
+	if (PRIVATE(stream_stdout))
+	{
+		for (i = 0; i < num; i++)
+			ec_stream_printf( PRIVATE(stream_stdout), "%w", obj[i] );
+		ec_stream_printf( PRIVATE(stream_stdout), "\n" );
+	}
 
 	return EC_NIL;
 }
@@ -180,8 +184,11 @@ EC_API EC_OBJ EcLibPrintf( EC_OBJ stack, EcAny userdata )
 	if (EC_ERRORP(res))
 		return res;
 
-	res = ec_printf_obj( fmt, obj, num, 1, EC_NIL );
-	ec_fprintf( stdout, "%w", res );
+	if (PRIVATE(stream_stdout))
+	{
+		res = ec_printf_obj( fmt, obj, num, 1, EC_NIL );
+		ec_stream_printf( PRIVATE(stream_stdout), "%w", res );
+	}
 
 	return res;
 }

@@ -149,8 +149,10 @@ struct EcPrivateStruct
 
 	/* Scanning & Parsing */
 	char *sourceOrigin;											/* Category of source file */
-	char *fileSource;											/* Source file */
-	char *fileOutput;											/* Desired output filename or NULL */
+	ec_stream *stream_compile_in;								/* source code input stream (where the source gets fetched) (not used yet) */
+	ec_stream *stream_compile_out;								/* bytecode output stream or NULL (where the bytecode gets saved) (not used yet) */
+	char *fileSource;											/* Source file (will be dismissed)                     */
+	char *fileOutput;											/* Desired output filename or NULL (will be dismissed) */
 	EcInt startLine, startColumn;								/* Token start */
 	EcInt endLine,   endColumn;									/* Token end */
 
@@ -158,6 +160,8 @@ struct EcPrivateStruct
 	EcInt line_start, col_start, charnum_start;					/* scanner start position   */
 
 	ASTNode parse_result;										/* the ast produced by parsing */
+
+	ec_stream *yyin;
 
 	/* Symbol table */
 	ec_strtable  *symTable;

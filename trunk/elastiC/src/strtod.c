@@ -200,8 +200,12 @@ typedef	u_int32_t ULong;
 #endif
 
 #ifdef DEBUG
+#if WITH_STDIO
+#if HAVE_STDIO_H
 #include "stdio.h"
+#endif
 #define Bug(x) {fprintf(stderr, "%s\n", x); exit(1);}
+#endif
 #endif
 
 #include <locale.h>

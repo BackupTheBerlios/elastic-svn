@@ -9,7 +9,7 @@
  *
  *   $Id$
  * --------------------------------------------------------------------------
- *    Copyright (C) 1998-2001 Marco Pantaleoni. All rights reserved.
+ *    Copyright (C) 1998-2002 Marco Pantaleoni. All rights reserved.
  *
  *  The contents of this file are subject to the elastiC License version 1.0
  *  (the "elastiC License"); you may not use this file except in compliance
@@ -593,7 +593,9 @@ ASTNode makeConstInt( EcInt number ), makeConstFloat( EcFloat number ),
 		makeMethod( EcBool classmethod, ASTNode name, ASTNode paramList, ASTNode body ),
 		makePackage( ASTNode name );
 
+#if defined(WITH_STDIO) && EC_AST_DEBUG
 void    ASTPrint( int lev, ASTNode node );
+#endif
 
 EC_END_DECLS
 

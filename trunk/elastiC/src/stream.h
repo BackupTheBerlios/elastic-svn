@@ -241,6 +241,9 @@ EC_API void                 ec_stream_mark( ec_stream *stream );
 EC_API EcInt                ec_stream_print( ec_stream *stream, ec_string *str, EcBool detailed );
 EC_API EcUInt               ec_stream_hash( ec_stream *stream, EcInt recursion_level );
 
+EC_API EcInt                ec_stream_printf( ec_stream *stream, const char *format, ... );
+EC_API EcInt                ec_stream_vprintf( ec_stream *stream, const char *format, va_list ap );
+
 EC_API ec_stream           *ec_stream_stdin( void );
 EC_API ec_stream           *ec_stream_stdout( void );
 EC_API ec_stream           *ec_stream_stderr( void );

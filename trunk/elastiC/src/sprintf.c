@@ -13,7 +13,7 @@
  *
  *   $Id$
  * --------------------------------------------------------------------------
- *    Copyright (C) 1999-2001 Marco Pantaleoni. All rights reserved.
+ *    Copyright (C) 1999-2002 Marco Pantaleoni. All rights reserved.
  *
  *  The contents of this file are subject to the elastiC License version 1.0
  *  (the "elastiC License"); you may not use this file except in compliance
@@ -100,8 +100,12 @@
  * This code is large and complicated...
  */
 
+#if HAVE_STDIO_H
 #include <stdio.h>
+#endif
+#if HAVE_STDLIB_H
 #include <stdlib.h>
+#endif
 
 
 EC_API EcInt ec_sprintf( ec_string *ds, const char *fmt, ... )
