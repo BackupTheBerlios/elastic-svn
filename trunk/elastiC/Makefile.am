@@ -34,7 +34,7 @@
 # ==========================================================================
 
 #EXTRA_DIST = LICENSE ACKNOWLEDGEMENTS elastic.m4 makemodule mkwin32.bat mingw32-makedll cygwin-makedll
-EXTRA_DIST = LICENSE ACKNOWLEDGEMENTS 				\
+EXTRA_DIST = LICENSE ACKNOWLEDGEMENTS TODO			\
 	autogen.sh subautogen.sh aclocal-flags			\
 	makemodule mkwin32.bat mingw32-makedll cygwin-makedll
 SUBDIRS = src aclocal . doc regress
