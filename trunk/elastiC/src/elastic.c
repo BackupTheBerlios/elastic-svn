@@ -135,6 +135,8 @@ EC_API EcBool EcInit( void )
 	PRIVATE(parse_result) = NULL;
 
 	PRIVATE(symTable)     = ec_strtable_create( STRTABLESLOTS );
+	if (! PRIVATE(symTable))
+		return FALSE;
 	PRIVATE(currentId)    = 0;
 	PRIVATE(symName)      = NULL;
 	PRIVATE(symNameSize)  = 0;
