@@ -266,6 +266,7 @@ EC_API void EcDumpCompiled( EC_OBJ compiled, EcInt at )
 	const char *name;
 	int         npar;
 	char       *compname;
+	const char *docstring = NULL;
 
 
 	ASSERT( EC_COMPILEDP(compiled) );
@@ -275,7 +276,13 @@ EC_API void EcDumpCompiled( EC_OBJ compiled, EcInt at )
 	else
 		compname = "$ANONYMOUS$";
 
+	if (EC_STRINGP(EC_COMPILEDDOCSTRING(compiled)))
+		docstring = EC_STRDATA(EC_COMPILEDDOCSTRING(compiled));
+	else
+		docstring = "";
+
 	ec_stderr_printf( "== Compiled   %-20s  0x%08lX ========\n", compname, (unsigned long)compiled );
+	ec_stdout_printf( "  \"%s\"\n", docstring );
 	ec_stderr_printf( "Bytecode len.        : %ld\n", (long)EC_COMPILEDNCODE(compiled) );
 	ec_stderr_printf( "# req. arguments     : %ld\n", (long)EC_COMPILEDNARG(compiled) );
 	ec_stderr_printf( "  of which, defaulted: %ld\n", (long)EC_COMPILEDNARG_DEF(compiled) );

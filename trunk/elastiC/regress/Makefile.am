@@ -81,7 +81,9 @@ dist-hook:
 	mkdir -p $(distdir)/stderr
 	mkdir -p $(distdir)/expectout
 	mkdir -p $(distdir)/expecterr
+	mkdir -p $(distdir)/files
 	mkdir -p $(distdir)/obj
 	cp -a input/* $(distdir)/input
 	cp -a expectout/* $(distdir)/expectout
 	cp -a expecterr/* $(distdir)/expecterr
+	cp -a files/* $(distdir)/files

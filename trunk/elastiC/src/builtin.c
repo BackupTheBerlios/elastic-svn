@@ -613,6 +613,12 @@ EcBool _ec_register_builtin( void )
 		return FALSE;											/* :TODO: do something with exception */
 #endif
 
+#if ECMODULE_XML_STATIC
+	modpkg = _ec_modxml_init();
+	if (EC_ERRORP(modpkg))
+		return FALSE;											/* :TODO: do something with exception */
+#endif
+
 	/* Object class */
 
 	EcObjectClassDef.superclass   = EC_NIL;
@@ -760,6 +766,9 @@ EcBool _ec_register_builtin( void )
 
 void _ec_cleanup_builtin( void )
 {
+#if ECMODULE_XML_STATIC
+	_ec_modxml_cleanup();
+#endif
 #if ECMODULE_ERRNO_STATIC
 	_ec_moderrno_cleanup();
 #endif

@@ -210,7 +210,7 @@ EC_API EC_OBJ EcMakeCompiled( EC_OBJ package,
 							  EcInt  req_nargs,					/* minimum # of params (counting also default ones)                  */
 							  EcInt  def_nargs,					/* # of parameters with default values (must be included in above #) */
 							  EcBool varargs,
-							  EcBool ismethod );
+							  EcBool ismethod, const char *docstring );
 EC_API EC_OBJ EcMakeHandler( EC_OBJ type, EC_OBJ code );
 EC_API EC_OBJ EcMakePackage( const char *name );
 EC_API EC_OBJ EcMakeClass( EC_OBJ package, EC_OBJ superclass, const char *name );

@@ -78,7 +78,7 @@ EC_API EC_OBJ EcMakePackage( const char *name )
 	if (! EC_PACKAGE(obj)) return Ec_ERROR;
 
 	EC_PACKAGENAME(obj)     = name ? EcMakeString( name, 0 ) : EC_NIL;
-	EC_PACKAGECODE(obj)     = EcMakeCompiled( obj, pkgcodename, 0, 0, FALSE, FALSE ); /* ... a package has no args */
+	EC_PACKAGECODE(obj)     = EcMakeCompiled( obj, pkgcodename, 0, 0, FALSE, FALSE, NULL ); /* ... a package has no args */
 	EC_PACKAGEFRAME(obj)    = EcMakeArray( 0 );
 	EC_PACKAGEIMPORT(obj)   = EcMakeArray( 0 );
 	EC_PACKAGENEXPORT(obj)  = 0;

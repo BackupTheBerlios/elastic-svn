@@ -36,7 +36,7 @@
 
 ERRORPRONE="./testenv"
 
-LIBPATH="${srcdir}/obj:${srcdir}/../src/modules-dynamic/re:${srcdir}/../src/modules:${srcdir}/../modules"
+LIBPATH="${srcdir}/obj:${srcdir}/../src/modules-dynamic/re:${srcdir}/../src/modules:${srcdir}/../src/modules/xml:${srcdir}/../modules"
 #LIBPATH=${top_srcdir}/regress/obj:${top_builddir}/src/modules-dynamic/re
 
 if echo '\c' | grep -s c >/dev/null 2>&1

@@ -150,6 +150,8 @@ typedef struct _compiled
 	 */
 	EC_OBJ info;												/* info object*/
 
+	EC_OBJ docstring;											/* documentation string */
+
 	EcCCallable ccallable;										/* C callable #JP */
 } EcCompiled;
 
@@ -485,6 +487,7 @@ extern EC_API EcInt tc_object;
 #define EC_COMPILEDNAME(obj)		(EC_COMPILED(obj)->name)
 #define EC_COMPILEDISMETHOD(obj)	(EC_COMPILED(obj)->ismethod)
 #define EC_COMPILEDINFO(obj)		(EC_COMPILED(obj)->info)
+#define EC_COMPILEDDOCSTRING(obj)	(EC_COMPILED(obj)->docstring)
 #define EC_COMPILEDCCALLABLE(obj)	(EC_COMPILED(obj)->ccallable) /* #JP */
 #define EC_HANDLER(obj)				((obj)->v.handler)
 #define EC_HANDLERTYPE(obj)			(EC_HANDLER(obj).type)

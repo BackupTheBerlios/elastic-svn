@@ -97,7 +97,7 @@ EC_API EC_OBJ EcMakeClass( EC_OBJ package, EC_OBJ superclass, const char *name )
 											 0,					/* req. parameters      */
 											 0,					/* params with defaults */
 											 FALSE,				/* varags               */
-											 FALSE );			/* is a method ?        */
+											 FALSE, NULL );			/* is a method ?        */
 	ec_string_cleanup( &ds );
 
 	/* Set appropriately the various fields */

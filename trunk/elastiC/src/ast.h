@@ -341,6 +341,8 @@ typedef struct
 	ASTNode paramList;
 	ASTNode body;
 
+	const char *docstring;
+
 	/* Decorations */
 	Scope   scope;
 } FunctionNode;
@@ -588,7 +590,7 @@ ASTNode makeConstInt( EcInt number ), makeConstFloat( EcFloat number ),
 	    makeCall( ASTNode fnct, ASTNode arglist ),
 	    makeMethodCall( EcBool super, ASTNode receiver, ASTNode method, ASTNode arglist ),
 	    makeList( EcBool asArg, EcBool ret, ASTNode prefix, ASTNode stmt ),
-	    makeFunction( ASTNode funcName, ASTNode decl, ASTNode paramList, ASTNode body ),
+		makeFunction( ASTNode funcName, ASTNode decl, ASTNode paramList, ASTNode body, const char *docstring ),
 	    makeReturn( ASTNode expr ),
 		makeClass( ASTNode decl, ASTNode name, ASTNode base, ASTNode body ),
 		makeMethod( EcBool classmethod, ASTNode name, ASTNode paramList, ASTNode body ),

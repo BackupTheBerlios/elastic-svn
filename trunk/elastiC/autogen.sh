@@ -8,6 +8,8 @@ test -z "$srcdir" && srcdir=.
 
 PKG_NAME="elastic"
 
+export SED=sed
+
 (test -f $srcdir/configure.in \
   && test -f $srcdir/README \
   && test -f $srcdir/src/elastic.c) || {

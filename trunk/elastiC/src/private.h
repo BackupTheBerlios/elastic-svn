@@ -496,6 +496,12 @@ EC_OBJ    _ec_moderrno_init( void );
 void      _ec_moderrno_cleanup( void );
 #endif
 
+/* xml module */
+#if ECMODULE_XML_STATIC
+EC_OBJ    _ec_modxml_init( void );
+void      _ec_modxml_cleanup( void );
+#endif
+
 /* Misc */
 #define MAX_HASH_RECUR 2
 EcUInt _ec_hash( EC_OBJ obj, EcInt recur );

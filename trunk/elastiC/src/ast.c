@@ -659,7 +659,7 @@ ASTNode astListTail( ASTNode astList )
 	return node;
 }
 
-ASTNode makeFunction( ASTNode funcName, ASTNode decl, ASTNode paramList, ASTNode body )
+ASTNode makeFunction( ASTNode funcName, ASTNode decl, ASTNode paramList, ASTNode body, const char *docstring )
 {
 	ASTNode res;
 
@@ -668,6 +668,7 @@ ASTNode makeFunction( ASTNode funcName, ASTNode decl, ASTNode paramList, ASTNode
 	res->vFunction.decl      = decl;
 	res->vFunction.paramList = paramList;
 	res->vFunction.body      = body;
+	res->vFunction.docstring = ec_stringduppool( PRIVATE(nodePool), docstring );
 
 	res->vFunction.scope = NULL;
 
@@ -1599,6 +1600,11 @@ static void printFunction( int lev, ASTNode node )
 	ec_stderr_printf( " " );
 	ASTPrint( 0, node->vFunction.paramList );
 	ec_stderr_printf( "\n" );
+	if (node->vFunction.docstring)
+	{
+		indent( lev );
+		ec_stderr_printf( "\"%s\"\n", node->vFunction.docstring );
+	}
 	ASTPrint( lev, node->vFunction.body );
 	if (currentScope)
 		currentScope = currentScope->upper;
