@@ -364,6 +364,10 @@ EC_OBJ _ec_sequence2mask( const char *func_name, EcInt param_index, _ec_symbol2i
 EC_OBJ _ec_mask2sequence( const char *func_name, _ec_symbol2int *map,
 						  unsigned long mask );
 
+/* errno to IOError */
+
+EC_OBJ _ec_errno2exception( int posix_errnum, EC_OBJ ioObject, const char *msg );
+
 /* ========================================================================
  * P R I V A T E   F U N C T I O N S
  * ======================================================================== */

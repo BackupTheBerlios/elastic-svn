@@ -503,6 +503,7 @@ AC_CHECK_FUNCS(pipe mkfifo umask fdopen fileno)
 AC_CHECK_FUNCS(fork execl execle execlp execv execve execvp wait waitpid _exit)
 AC_CHECK_FUNCS(kill sleep pause alarm setuid setgid)
 AC_CHECK_FUNCS(getpid getppid getlogin getuid geteuid cuserid getgid getegid)
+AC_CHECK_FUNCS(popen pclose)
 
 ELASTIC_VA_COPY
 
