@@ -64,6 +64,25 @@ do {										\
 	}									\
 } while(0)
 
+#define ECHO \
+do {										\
+	if (ec_stream_stdout()) /* we could add PRIVATE(yyout) */		\
+		ec_stream_write( ec_stream_stdout(), yytext, yyleng );		\
+} while(0)
+
+static int local_fprintf(void *fh, const char *fmt, ...)
+{
+	va_list ap;
+	EcInt   rv;
+
+	va_start(ap, fmt);
+	rv = ec_stderr_vprintf(fmt, ap);
+	rv += ec_stderr_printf("\n");
+	va_end(ap);
+	return rv;
+}
+
+#define fprintf local_fprintf
 %}
 
 LBRACE  	"{"

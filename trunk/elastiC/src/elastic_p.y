@@ -47,6 +47,22 @@
 #include <stdlib.h>
 #endif
 
+#if YYDEBUG
+#include <stdarg.h>
+
+static int local_yyfprintf(void *stream, const char *fmt, ...)
+{
+	va_list ap;
+	EcInt   rv;
+
+	va_start(ap, fmt);
+	rv = ec_stderr_vprintf(fmt, ap);
+	va_end(ap);
+	return rv;
+}
+
+#define YYFPRINTF local_yyfprintf
+#endif
 
 int yyparse( void );
 int yylex( void );
