@@ -270,3 +270,4 @@ if ($nerrors > 0) {
 
 close(LOG);
 close(OUT);
+print STDERR "\007";
