@@ -39,9 +39,30 @@
 srcdir = @srcdir@
 VPATH = @srcdir@
 
+CLEANFILES = $(DYNAMIC_MODULES) $(wildcard $.o)  $(wildcard $.dll)
+
+elasticlibdir = $(prefix)/lib/elastic-$(EC_API_VERSION)
+elasticlib_DATA = $(DYNAMIC_MODULES)
+
 noinst_LTLIBRARIES = libmodules.la
 
 CFLAGS = $(CORE_CFLAGS)
+
+if ECMODULE_POSIX_STATIC
+posix_static = posix_m.c
+else
+posix_static =
+endif
+
+if ECMODULE_POSIX_DYNAMIC
+posix_dynamic         = posix_m.c
+dynamic_modules_posix = posix$(SO)
+else
+posix_dynamic         =
+dynamic_modules_posix =
+endif
+
+DYNAMIC_MODULES = $(dynamic_modules_posix)
 
 static_sources = \
 	list_m.c	\
@@ -49,11 +70,22 @@ static_sources = \
 	string_m.h	\
 	array_m.c	\
 	array_m.h	\
-	posix_m.c	\
-	errno_switch.c
+	$(posix_static)	\
+	errno_switch.c.incl
 
 libmodules_la_SOURCES = \
 	$(static_sources)
 libmodules_la_LIBADD =
+
+CFLAGS_DYNAMIC = $(MODULE_CFLAGS) -DELASTIC_EXPORTS
+COMPILE_DYNAMIC = $(CC) $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS_DYNAMIC) $(CCSHARED)
+
+if ECMODULE_POSIX_DYNAMIC
+posix_m.o : posix_m.c
+	$(COMPILE_DYNAMIC) -c $< -o $@
+
+$(dynamic_modules_posix): posix_m.o
+	$(MKMODULE) $(MKMODULEFLAGS) $@ $^ $(MKMODULELIBS) $(LIBS)
+endif
 
 INCLUDES = -I$(top_srcdir) -I$(top_srcdir)/src

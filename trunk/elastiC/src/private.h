@@ -424,9 +424,11 @@ void      _ec_modstring_cleanup( void );
 EcBool    _ec_modarray_init( void );
 void      _ec_modarray_cleanup( void );
 
+#if ECMODULE_POSIX_STATIC
 /* Posix module */
-EcBool    _ec_modposix_init( void );
+EC_OBJ    _ec_modposix_init( void );
 void      _ec_modposix_cleanup( void );
+#endif
 
 /* Misc */
 #define MAX_HASH_RECUR 2

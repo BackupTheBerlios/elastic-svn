@@ -574,8 +574,10 @@ EcBool _ec_register_builtin( void )
 	if (! _ec_modarray_init())
 		return FALSE;
 
-	if (! _ec_modposix_init())
-		return FALSE;
+#if ECMODULE_POSIX_STATIC
+	if (EC_ERRORP(_ec_modposix_init()))
+		return FALSE;											/* :TODO: do something with exception */
+#endif
 
 	/* Object class */
 
@@ -724,7 +726,9 @@ EcBool _ec_register_builtin( void )
 
 void _ec_cleanup_builtin( void )
 {
+#if ECMODULE_POSIX_STATIC
 	_ec_modposix_cleanup();
+#endif
 	_ec_modarray_cleanup();
 	_ec_modstring_cleanup();
 	_ec_file_cleanup();
