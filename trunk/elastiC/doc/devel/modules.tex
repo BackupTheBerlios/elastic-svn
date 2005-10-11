@@ -1,0 +1,59 @@
+% -*- Latex -*-
+% $Id$
+
+\documentclass[makeidx,10pt,titlepage]{article}
+\usepackage{supertabular}
+\usepackage{color}
+\usepackage{algorithm}
+
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \pdfoutput=1
+  \pdftrue
+\fi
+
+
+\ifpdf
+  %% Use the following two lines for PDF (pdfLaTeX)
+  %% and commend 'cmbright' below
+  \usepackage[T1]{fontenc}
+  \usepackage{times}
+\else
+  % Use this for normal (not pdfLaTeX) output
+  \usepackage{cmbright}
+\fi
+
+\begin{document}
+\title{elastiC Module system}
+\author{
+Marco Pantaleoni\\
+{\sl panta@elasticworld.org}}
+\date{June 14, 2002}
+\maketitle
+
+\begin{abstract}
+We want to present the specification and rationale behind elastiC
+module system. elastiC modules provide a flexible mechanism to
+encapsulate a common set of functionalities.
+\end{abstract}
+
+\section{Introduction}
+
+elastiC modules, or packages, provide a mean of collecting together
+variables (and hence functions and classes) into separate namespaces,
+thus preventing accidental name clashes.
+An elastiC program is itself necessarily a module.
+
+\section{Usage}
+ A module can access variables declared in a different module by 1)
+ {\sl importing} the desired package and 2) accessing
+the name in the imported module by {\sl qualifying} the variable with
+the module name\footnote{we'll see that it is also possible to import
+  some simbols into the current namespace, thus avoiding the need to
+  fully qualify their names.}.
+Modules can be nested to increase the flexibility in decomposing
+complex projects into manageable pieces.
+
+\end{document}

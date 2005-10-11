@@ -3,21 +3,24 @@ package balance;
 import basic;
 
 public function new_account( amount )
+	"This function creates a new bank account."
+    "It uses anonymous function creation."
 {
     return function( operation, args ... )
+		"An anonymous function acting as a balance."
     {
         if (operation == #deposit)
-	{
-	    amount += args[0];
-	    return amount;
-	} else if (operation == #withdraw)
-	{
-	    amount -= args[0];
-	    return amount;
-	} else if (operation == #balance)
-	{
-	    return amount;
-	}
+		{
+			amount += args[0];
+			return amount;
+		} else if (operation == #withdraw)
+		{
+			amount -= args[0];
+			return amount;
+		} else if (operation == #balance)
+		{
+			return amount;
+		}
     };
 }
 
