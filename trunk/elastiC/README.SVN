@@ -1,0 +1,96 @@
+			     elastiC SVN
+			     ===========
+$Id$
+
+1. Access to elastiC Subversion repository (SVN)
+------------------------------------------------
+
+elastiC SVN repository is kindly hosted at BerliOS. Instructions on
+how to access it are available at:
+
+   http://developer.berlios.de/svn/?group_id=394
+
+but they are repeated below in sections 1.1 and 1.2 for your convenience.
+A web interface to elastiC SVN repository is also available at:
+
+   http://svn.berlios.de/wsvn/elastic
+
+A generic BerliOS SVN HOWTO is available at:
+
+   http://developer.berlios.de/docman/display_doc.php?docid=394&group_id=2
+
+1.1 Anonymous access to elastiC SVN repository
+----------------------------------------------
+
+Read-only anonymous access to the elastiC SVN repository is available
+to anyone, either through the svn protocol or through HTTP.
+Assuming that the bash shell is being used:
+
+  $ svn checkout svn://svn.berlios.de/elastic/trunk
+
+or for HTTP:
+
+  $ svn checkout http://svn.berlios.de/svnroot/repos/elastic/trunk
+
+Both these commands will create a `trunk' directory containing all the
+source code for elastiC, external modules, utilities, and everything
+related to elastiC.
+
+1.2 Developer access to elastiC SVN repository (only for project developers)
+----------------------------------------------------------------------------
+
+Project developers have full access to the elastiC SVN repository.
+A SSH2 client is necessary.
+Assuming that the bash shell is being used:
+
+  $ svn checkout svn+ssh://DEVELOPERNAME@svn.berlios.de/svnroot/repos/elastic/trunk 
+
+or through HTTPS:
+
+  $ svn checkout https://DEVELOPERNAME@svn.berlios.de/svnroot/repos/elastic/trunk 
+
+where `DEVELOPERNAME' is the BerliOS user account. The site password
+is needed on each operation, unless the local ssh public key has been
+uploaded to the BerliOS shell server, as explained in:
+
+   http://developer.berlios.de/docman/display_doc.php?docid=34&group_id=2
+
+The use of DSA authentication with a non-empty pass-phrase is highly
+recommended. Use ssh-agent and ssh-add to avoid having to enter the
+passphrase every time.
+
+2. Building elastiC from SVN
+----------------------------
+
+Once the elastiC module has been checked out, there are a couple
+operations that need to be performed *before* it can be succesfully
+built. These operations are:
+
+  a. symlink re-creation
+  b. Creation of autoconf/automake related files (`configure',
+     Makefile.in, ...)
+
+These steps are automatically accomplished by running the `autogen.sh'
+script at toplevel. autoconf 2.53, automake 1.6, libtool 1.4.2 or
+later are necessary:
+
+  $ ./autogen.sh [CONFIGURE_OPTIONS]
+
+autogen.sh will recreate all the necessary links and scripts, and when
+finished, it will call `configure', eventually passing the optional
+CONFIGURE_OPTIONS.
+
+Once these steps have been completed, it's possible to proceed in the
+usual way to compile elastiC:
+
+  $ ./configure [OPTIONS]
+    (`autogen.sh' will call `configure', so this step is not necessary
+     the first time, after having run `autogen.sh', but only for
+     subsequent builds)
+  $ make
+  $ make install
+
+
+Marco Pantaleoni
+panta@elasticworld.org
+13 June 2006
